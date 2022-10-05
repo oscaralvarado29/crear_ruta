@@ -12,6 +12,6 @@ public class RouteResponse {
     private NeighborhoodResponse origin;
     private NeighborhoodResponse destination;
     private List<RouteNeighborhoodDto> stops;
-    private List<DateDto> travelDates;
+    private List<DatesRouteDto> travelDates;
     private Integer quota;
 }

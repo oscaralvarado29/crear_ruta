@@ -1,7 +1,6 @@
 package com.rutas.conductor.creacion_de_rutas.domain.usercase;
 
 import com.rutas.conductor.creacion_de_rutas.domain.api.IRouteServicePort;
-import com.rutas.conductor.creacion_de_rutas.domain.exceptions.DateAndHourNotPresentException;
 import com.rutas.conductor.creacion_de_rutas.domain.exceptions.QuotaNotValidException;
 import com.rutas.conductor.creacion_de_rutas.domain.model.Route;
 import com.rutas.conductor.creacion_de_rutas.domain.spi.IRoutePersistencePort;
@@ -18,11 +17,13 @@ public class RouteUserCase implements IRouteServicePort {
 
     /**
      * @param route Route to be saved
+     * @return
      */
     @Override
-    public void saveRoute(Route route) {
+    public Route saveRoute(Route route) {
         validationOfComplianceWithTheRequirementsForSaveRoute(route);
         routePersistencePort.saveRoute(route);
+        return route;
     }
 
     private void validationOfComplianceWithTheRequirementsForSaveRoute(Route route) {
@@ -30,9 +31,7 @@ public class RouteUserCase implements IRouteServicePort {
         if (route.getQuota() < 1 || route.getQuota() > 4) {
             throw new QuotaNotValidException();
         }
-        if (route.getTravelDates().size()==0){
-            throw new DateAndHourNotPresentException();
-        }
+
     }
 
 

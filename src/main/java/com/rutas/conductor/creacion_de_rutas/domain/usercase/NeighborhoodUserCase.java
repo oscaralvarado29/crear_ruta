@@ -39,11 +39,20 @@ public class NeighborhoodUserCase implements INeighborhoodServicePort {
     }
 
     /**
+     *
+     * @param neighborhoodId
+     * @return the neighborhood found
+     */
+    @Override
+    public Neighborhood getNeighborhood(Long neighborhoodId) {
+        return neighborhoodPersistencePort.getNeighborhood(neighborhoodId);
+    }
+    /**
      * @param neighborhoodName the name of the neighborhood to be found
      * @return the neighborhood found
      */
     @Override
-    public Neighborhood findByName(String neighborhoodName) {
+    public Neighborhood findNeighborhoodByName(String neighborhoodName) {
         return neighborhoodPersistencePort.findByName(neighborhoodName);
     }
 
