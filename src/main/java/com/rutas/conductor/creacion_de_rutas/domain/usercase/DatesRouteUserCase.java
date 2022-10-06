@@ -18,11 +18,13 @@ public class DatesRouteUserCase implements IDatesRouteServicePort {
      * @param dateRoute List of datesRoute to be saved
      */
     @Override
-    public void saveDatesRoute(DatesRoute dateRoute) {
-        if (dateRoute == null) {
+    public void saveDatesRoute(List<DatesRoute> dateRoute) {
+        if (dateRoute.size() == 0) {
             throw new DateAndHourNotPresentException();
         }
-        datesRoutePersistencePort.saveDatesRoute (dateRoute);
+        for (DatesRoute datesRoute : dateRoute) {
+            datesRoutePersistencePort.saveDatesRoute(datesRoute);
+        }
     }
 
     /**
@@ -33,20 +35,13 @@ public class DatesRouteUserCase implements IDatesRouteServicePort {
         datesRoutePersistencePort.updateDatesRoute(dateRoute);
     }
 
-    /**
-     * @param dateRouteId the id of the dateRoute to delete
-     */
-    @Override
-    public void deleteADateRoute(Long dateRouteId) {
-        datesRoutePersistencePort.deleteADateRoute(dateRouteId);
-    }
 
     /**
      * @param routeId the id of the route to delete all datesRoute
      */
     @Override
-    public void deleteDatesRouteOfRoute(Long routeId) {
-        datesRoutePersistencePort.deleteDatesRouteOfRoute(routeId);
+    public void deleteDatesRouteOfARoute(Long routeId) {
+        datesRoutePersistencePort.deleteDatesRouteOfARoute(routeId);
     }
 
     /**

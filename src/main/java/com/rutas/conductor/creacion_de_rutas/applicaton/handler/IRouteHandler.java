@@ -9,7 +9,7 @@ public interface IRouteHandler {
     void saveRouteInDB(RouteRequest routeRequest);
     List<RouteResponse> getAllRoutesFromDB();
     RouteResponse getRouteFromDB(Long id);
-    void deleteRouteInDB(Long id);
+    void deleteRouteInDB(String routeName);
     void updateRouteInDB(RouteRequest routeRequest);
 
 }

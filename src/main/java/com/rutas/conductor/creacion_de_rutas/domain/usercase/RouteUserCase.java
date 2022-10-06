@@ -61,6 +61,15 @@ public class RouteUserCase implements IRouteServicePort {
     }
 
     /**
+     * @param routeName
+     * @return
+     */
+    @Override
+    public Route findRouteByName(String routeName) {
+        return routePersistencePort.findRouteByName(routeName);
+    }
+
+    /**
      * @return List of all routes
      */
     @Override
