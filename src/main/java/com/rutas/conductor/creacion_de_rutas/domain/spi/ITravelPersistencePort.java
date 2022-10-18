@@ -7,7 +7,8 @@ import java.util.List;
 public interface ITravelPersistencePort {
     void saveTravel(Travel travel);
     void updateTravel(Travel travel);
-    void deleteTravel(Long travelId);
-    Travel getTravel(Long travelId);
-    List<Travel> getAllTravels();
+    void deleteTravelsOfARoute(Long routeId);
+    void deleteTravel(Long routeId, String date);
+    List<Travel> findTravelByRoute(Long  routeId);
+    List<Travel> getAllTravel();
 }

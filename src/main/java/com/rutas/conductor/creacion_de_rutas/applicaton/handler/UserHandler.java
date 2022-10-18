@@ -19,6 +19,7 @@ public class UserHandler implements IUserHandler {
     private final UserRequestMapper userRequestMapper;
     private final UserResponseMapper userResponseMapper;
 
+
     @Override
     public void saveUserInDB(UserRequest userRequest) {
         userServicePort.saveUser(userRequestMapper.toUser(userRequest));
